@@ -14,7 +14,6 @@ namespace PackIT.Application.Commands.Handlers
         private readonly IPackingListReadService _readService;
         private readonly IWeatherService _weatherService;
 
-
         public CreatePackingListWithItemsHandler(IPackingListRepository repository, IPackingListFactory factory, IPackingListReadService readService, IWeatherService weatherService)
         {
             _repository = repository;
