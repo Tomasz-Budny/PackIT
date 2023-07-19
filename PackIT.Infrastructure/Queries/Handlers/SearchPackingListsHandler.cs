@@ -7,7 +7,7 @@ namespace PackIT.Application.Queries.Handlers
     {
         public Task<IEnumerable<PackingListDto>> HandleAsync(SearchPackingLists query)
         {
-
+            return null;
         }
     }
 }
