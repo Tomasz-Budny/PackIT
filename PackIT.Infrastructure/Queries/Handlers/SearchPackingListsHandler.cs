@@ -3,9 +3,9 @@ using PackIT.SharedAbstractions.Queries;
 
 namespace PackIT.Application.Queries.Handlers
 {
-    public class SearchPackingListsHandler : IQueryHandler<SearchPackingLists, IEnumerable<PackingListDto>>
+    public class SearchPackingListsHandler : IQueryHandler<SearchPackingLists, IEnumerable<PackingListReadModel>>
     {
-        public Task<IEnumerable<PackingListDto>> HandleAsync(SearchPackingLists query)
+        public Task<IEnumerable<PackingListReadModel>> HandleAsync(SearchPackingLists query)
         {
             return null;
         }

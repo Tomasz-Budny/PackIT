@@ -4,7 +4,7 @@ using PackIT.SharedAbstractions.Queries;
 
 namespace PackIT.Application.Queries.Handlers
 {
-    public class GetPackingListHandler : IQueryHandler<GetPackingList, PackingListDto>
+    public class GetPackingListHandler : IQueryHandler<GetPackingList, PackingListReadModel>
     {
         private IPackingListRepository _repository;
 
@@ -13,7 +13,7 @@ namespace PackIT.Application.Queries.Handlers
             _repository = repository;
         }
 
-        public async Task<PackingListDto> HandleAsync(GetPackingList query)
+        public async Task<PackingListReadModel> HandleAsync(GetPackingList query)
         {
             var packingList = await _repository.GetAsync(query.Id);
             return packingList?.AsDTO();
