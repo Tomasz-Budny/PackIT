@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PackIT.Application.Services;
 using PackIT.Infrastructure.EF;
-using PackIT.Infrastructure.Options;
-using PackIT.Shared.Options;
+using PackIT.Infrastructure.Services;
 using PackIT.Shared.Queries;
 
 namespace PackIT.Infrastructure
@@ -11,7 +11,7 @@ namespace PackIT.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-
+            services.AddSingleton<IWeatherService, DumbWeatherService>();
             services.AddPostgres(configuration);
             services.AddQueries();
             return services;
