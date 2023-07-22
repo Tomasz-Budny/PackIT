@@ -10,7 +10,7 @@ namespace PackIT.Infrastructure.EF.Config
     {
         public void Configure(EntityTypeBuilder<PackingItem> builder)
         {
-            builder.Property<Guid>("Id");
+            builder.Property<Guid>("Id"); // Pozwala dodać property nawet jeżeli ta jest private - mechanizm ten nazywa się shadow properties
             builder.Property(pi => pi.Name);
             builder.Property(pi => pi.Quantity);
             builder.Property(pi => pi.IsPacked);
