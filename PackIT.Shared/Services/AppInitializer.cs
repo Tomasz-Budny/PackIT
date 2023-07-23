@@ -13,6 +13,7 @@ namespace PackIT.Shared.Services
             _serviceProvider = serviceProvider;
         }
 
+        // Pozwala na pragmatyczne - kodowe zmigrowanie bazy danych bez używania zbędnych komend w tym celu.
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             var dbContextTypes = AppDomain.CurrentDomain.GetAssemblies()
