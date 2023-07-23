@@ -1,11 +1,14 @@
 using PackIT.Application;
 using PackIT.Infrastructure;
+using PackIT.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Assign configuration to local variable
 ConfigurationManager configuration = builder.Configuration;
 // Add services to the container.
+
+builder.Services.AddShared();
 
 // Rejestrujê wszystkie rzeczy z application layer
 builder.Services.AddAplication();
