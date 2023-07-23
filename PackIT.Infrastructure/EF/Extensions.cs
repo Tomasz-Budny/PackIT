@@ -25,5 +25,18 @@ namespace PackIT.Infrastructure.EF
             return services;
 
         }
+
+        public static IServiceCollection AddSqlServer(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddScoped<IPackingListRepository, PostgresPackingListRepository>();
+            services.AddScoped<IPackingListReadService, PostgresPackingListReadService>();
+
+            var options = configuration.GetOptions<PostgresOptions>("SqlServer");
+            services.AddDbContext<ReadDbContext>(ctx => ctx.UseSqlServer(options.ConnectionString));
+            services.AddDbContext<WriteDbContext>(ctx => ctx.UseSqlServer(options.ConnectionString));
+
+            return services;
+
+        }
     }
 }

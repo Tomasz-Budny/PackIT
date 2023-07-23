@@ -12,7 +12,8 @@ namespace PackIT.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton<IWeatherService, DumbWeatherService>();
-            services.AddPostgres(configuration);
+            //services.AddPostgres(configuration);
+            services.AddSqlServer(configuration);
             services.AddQueries();
             return services;
         }

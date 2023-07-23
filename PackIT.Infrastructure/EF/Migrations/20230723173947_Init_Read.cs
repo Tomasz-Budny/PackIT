@@ -17,9 +17,9 @@ namespace PackIT.Infrastructure.EF.Migrations
                 schema: "packing",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Localization = table.Column<string>(type: "text", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Localization = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,11 +31,11 @@ namespace PackIT.Infrastructure.EF.Migrations
                 schema: "packing",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Quantity = table.Column<long>(type: "bigint", nullable: false),
-                    IsPacked = table.Column<bool>(type: "boolean", nullable: false),
-                    PackingListId = table.Column<Guid>(type: "uuid", nullable: false)
+                    IsPacked = table.Column<bool>(type: "bit", nullable: false),
+                    PackingListId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
