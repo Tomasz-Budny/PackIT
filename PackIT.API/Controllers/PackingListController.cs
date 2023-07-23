@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PackIT.Application.Commands;
 using PackIT.Application.DTO;
 using PackIT.Application.Queries;
 using PackIT.SharedAbstractions.Commands;
@@ -32,6 +33,14 @@ namespace PackIT.API.Controllers
             var result = await _queryDispatcher.QueryAsync(query);
 
             return OkOrNotFound(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(CreatePackingListWithItems command)
+        {
+            await _commandDispatcher.DispatchAsync(command);
+            return CreatedAtAction(nameof(Get), new { id = command.Id }, null);
+
         }
     }
 }
