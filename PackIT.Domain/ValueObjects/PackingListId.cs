@@ -8,7 +8,7 @@ namespace PackIT.Domain.ValueObjects
 
         public PackingListId(Guid value)
         { 
-            if(Value == Guid.Empty)
+            if(value == Guid.Empty)
             {
                 throw new EmptyPackingListIdException();
             }

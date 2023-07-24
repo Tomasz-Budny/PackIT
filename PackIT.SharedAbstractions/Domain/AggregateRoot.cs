@@ -4,6 +4,7 @@
     {
         public T Id { get; protected set; }
         public int Version { get; protected set; }
+        //protected int Version { get; set; }
         private bool _versionIncremented;
         public IEnumerable<IDomainEvent> Events => _events;
 
