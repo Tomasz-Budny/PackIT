@@ -1,3 +1,4 @@
+using PackIT.API.Middleware;
 using PackIT.Application;
 using PackIT.Infrastructure;
 using PackIT.Shared;
@@ -14,6 +15,7 @@ builder.Services.AddShared();
 builder.Services.AddAplication();
 builder.Services.AddControllers();
 builder.Services.AddInfrastructure(configuration);
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -27,6 +29,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
